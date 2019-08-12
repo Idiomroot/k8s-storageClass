@@ -1,0 +1,12 @@
+apiVersion: storage.k8s.io/v1
+#allowVolumeExpansion: true 开启允许扩容功能，但是nfs类型不支持
+kind: StorageClass
+metadata:
+  name: pointsmart-nfs-storage
+mountOptions:
+- vers=4
+- minorversion=0
+- noresvport
+provisioner: fuseim.pri/ifs
+parameters:
+  archiveOnDelete: "false"
